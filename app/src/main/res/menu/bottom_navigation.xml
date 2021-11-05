@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/nav_all"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_singles"
+        android:icon="@drawable/singles"
+        android:title="Singles"/>
+
+    <item
+        android:id="@+id/nav_combos"
+        android:icon="@drawable/combo_icon"
+        android:title="Combos"/>
+
+    <item
+        android:id="@+id/nav_over_btts"
+        android:icon="@drawable/over"
+        android:title="Over / Btts"/>
+
+    <item
+        android:id="@+id/nav_betOfTheDay"
+        android:icon="@drawable/betofday"
+        android:title="Bet of the day"/>
+</menu>
