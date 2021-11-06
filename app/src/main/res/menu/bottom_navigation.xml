@@ -9,7 +9,7 @@
     <item
         android:id="@+id/nav_singles"
         android:icon="@drawable/singles"
-        android:title="Singles"/>
+        android:title="Singles" />
 
     <item
         android:id="@+id/nav_combos"
