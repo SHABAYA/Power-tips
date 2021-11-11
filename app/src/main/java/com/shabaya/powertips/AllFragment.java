@@ -30,7 +30,7 @@ public class AllFragment extends Fragment {
     }
 
     private void initialiseRecyclerView() {
-        prediction_recycler_view= view.findViewById(R.id.prediction_recycler_view);
+        prediction_recycler_view= view.findViewById(R.id.all_recycler_view);
         prediction_recycler_view.hasFixedSize();
         prediction_recycler_view.hasNestedScrollingParent();
         prediction_recycler_view.setHasFixedSize(true);
@@ -46,15 +46,7 @@ public class AllFragment extends Fragment {
     public void getPrediction() {
         predictionsList = new ArrayList<>();
         predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
+        predictionsList.add(new Prediction("Germany","14:00", "Leverkusen vs Hertha Berlin", "btts", 1.51));
 
     recyclerAdapter.setPredictionsList(predictionsList);
     }

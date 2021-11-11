@@ -4,23 +4,20 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.squareup.picasso.Callback;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
+public class SingleComboRecyclerViewAdapter  extends RecyclerView.Adapter<SingleComboRecyclerViewAdapter.MyViewHolder> {
     private ArrayList<Prediction> predictionsList;
     private View view;
     private Context context;
     private LayoutInflater inflater;
 
-    public RecyclerAdapter(Context context) {
+    public SingleComboRecyclerViewAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         predictionsList = new ArrayList<>();
@@ -38,6 +35,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         private TextView oddsText;
         private TextView matchText;
 
+
         public MyViewHolder(final View view){
             super(view);
             countryText = view.findViewById(R.id.textView0);
@@ -50,13 +48,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @NonNull
     @Override
-    public RecyclerAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SingleComboRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_row, parent, false);
-        return new MyViewHolder(itemView);
+        return new SingleComboRecyclerViewAdapter.MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SingleComboRecyclerViewAdapter.MyViewHolder holder, int position) {
         Prediction prediction = predictionsList.get(position);
 
         String country = prediction.getCountry();
@@ -76,4 +74,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     public int getItemCount() {
         return predictionsList.size();
     }
+
 }

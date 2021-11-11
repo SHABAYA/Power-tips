@@ -23,6 +23,6 @@
 
     <item
         android:id="@+id/nav_betOfTheDay"
-        android:icon="@drawable/betofday"
+        android:icon="@drawable/betoftheday"
         android:title="Bet of the day"/>
 </menu>
