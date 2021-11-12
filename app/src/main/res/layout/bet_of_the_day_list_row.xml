@@ -3,69 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="230dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    android:clipToPadding="false"
+    app:cardUseCompatPadding="true"
+    app:cardPreventCornerOverlap="true"
     >
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:background="@color/yellow"
+        android:padding="0dp"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ENGLAND"
             android:id="@+id/textView0"
-            android:textAlignment="center"
             android:padding="7dp"
-            android:textSize="30dp"
+            android:textSize="24dp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Arsenal vs Manchester City"
-                android:id="@+id/textView2"
-                android:textSize="25dp"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/black"
-                android:layout_marginStart="50dp"
-                android:padding="10dp"/>
 
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arsenal vs Manchester City"
+            android:id="@+id/textView2"
+            android:textSize="20dp"
+            android:textColor="@color/darkGrey"
+            android:padding="4dp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="19:00"
-                android:id="@+id/textView1"
-                android:textSize="20dp"
-                android:layout_centerHorizontal="true"
-                android:padding="5dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginStart="180dp"
-                android:textColor="@color/black"/>
-
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19:00"
+            android:id="@+id/textView1"
+            android:textSize="20dp"
+            android:padding="4dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/darkGrey"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="4dp">
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Man City Wins"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -76,18 +65,15 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="300dp"
-                android:padding="7dp"
+                android:layout_alignParentEnd="true"
                 android:text=" 1.85"
-                android:textColor="@color/black"
+                android:textColor="@color/darkGrey"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="" />
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"/>
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>

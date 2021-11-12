@@ -24,7 +24,7 @@ public class BetOfTheDayFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bet_of_the_day, container, false);
 
-        //initialiseRecyclerView();
+        initialiseRecyclerView();
         return view;
     }
 
@@ -39,6 +39,7 @@ public class BetOfTheDayFragment extends Fragment {
         prediction_recycler_view.setLayoutManager(layoutManager);
         recyclerAdapter = new BetOfTheDayAdapter(getContext());
         prediction_recycler_view.setAdapter(recyclerAdapter);
+
         getBetOfTheDayPrediction();
     }
 

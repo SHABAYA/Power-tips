@@ -66,6 +66,7 @@ public class CombosFragment extends Fragment {
 
         ArrayList<Prediction> predictionsList3 = new ArrayList<>();
         predictionsList3.add(new Prediction("England", "13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
+        predictionsList3.add(new Prediction("England", "13:00", "Arsenal vs Chelsea", "btts", 1.71));
         predictionsList3.add(new Prediction("Germany", "14:00", "Leverkusen vs Hertha Berlin", "btts", 1.51));
         ComboPrediction comboPrediction3 = new ComboPrediction("Super saver", predictionsList);
         ComboPrediction comboPrediction5 = new ComboPrediction("Super time", predictionsList2);

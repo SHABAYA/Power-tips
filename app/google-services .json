@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "504272220566",
+    "firebase_url": "https://power-tips-105dd-default-rtdb.firebaseio.com",
+    "project_id": "power-tips-105dd",
+    "storage_bucket": "power-tips-105dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504272220566:android:94c0ed685cb476e13d2db7",
+        "android_client_info": {
+          "package_name": "com.shabaya.powertips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504272220566-aqmkobrhot4olrsfg2ntogophnioult6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcRB5HCsMJANQeiUi1M3gQWG-yPPjprKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504272220566-aqmkobrhot4olrsfg2ntogophnioult6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

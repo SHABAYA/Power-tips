@@ -46,8 +46,6 @@ public class AllFragment extends Fragment {
     public void getPrediction() {
         predictionsList = new ArrayList<>();
         predictionsList.add(new Prediction("England","13:00", "Arsenal vs Chelsea", "over 2.5", 1.87));
-        predictionsList.add(new Prediction("Germany","14:00", "Leverkusen vs Hertha Berlin", "btts", 1.51));
-
     recyclerAdapter.setPredictionsList(predictionsList);
     }
 
