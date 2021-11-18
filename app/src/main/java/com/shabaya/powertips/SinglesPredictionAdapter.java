@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class SinglesPredictionAdapter extends RecyclerView.Adapter<SinglesPredictionAdapter.MyViewHolder> {
-private ArrayList<SinglesPrediction> predictionsList;
+private ArrayList<Prediction> predictionsList;
 private View view;
 private Context context;
 private LayoutInflater inflater;
@@ -23,7 +23,7 @@ public SinglesPredictionAdapter(Context context) {
         predictionsList = new ArrayList<>();
         }
 
-public void setPredictionsList(ArrayList<SinglesPrediction> predictionsList) {
+public void setPredictionsList(ArrayList<Prediction> predictionsList) {
         this.predictionsList = predictionsList;
         notifyDataSetChanged();
         }
@@ -54,7 +54,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
 
     @Override
     public void onBindViewHolder(@NonNull SinglesPredictionAdapter.MyViewHolder holder, int position) {
-        SinglesPrediction prediction = predictionsList.get(position);
+        Prediction prediction = predictionsList.get(position);
 
         String country = prediction.getCountry();
         holder.countryText.setText(country);

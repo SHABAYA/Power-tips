@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class BetOfTheDayAdapter extends RecyclerView.Adapter<BetOfTheDayAdapter.MyViewHolder> {
-    private ArrayList<BetOfTheDayPrediction> predictionsList;
+    private ArrayList<Prediction> predictionsList;
     private View view;
     private Context context;
     private LayoutInflater inflater;
@@ -23,7 +23,7 @@ public class BetOfTheDayAdapter extends RecyclerView.Adapter<BetOfTheDayAdapter.
         predictionsList = new ArrayList<>();
     }
 
-    public void setPredictionsList(ArrayList<BetOfTheDayPrediction> predictionsList) {
+    public void setPredictionsList(ArrayList<Prediction> predictionsList) {
         this.predictionsList = predictionsList;
         notifyDataSetChanged();
     }
@@ -54,7 +54,7 @@ public class BetOfTheDayAdapter extends RecyclerView.Adapter<BetOfTheDayAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull BetOfTheDayAdapter.MyViewHolder holder, int position) {
-        BetOfTheDayPrediction prediction = predictionsList.get(position);
+        Prediction prediction = predictionsList.get(position);
 
         String country = prediction.getCountry();
         holder.countryText.setText(country);

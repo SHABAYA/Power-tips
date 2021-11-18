@@ -1,14 +1,19 @@
 package com.shabaya.powertips;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.ArrayList;
 
 public class ComboPrediction {
+    private String id;
     private String title;
-   private ArrayList<Prediction> predictions;
 
-    public ComboPrediction(String title, ArrayList<Prediction> predictions) {
-        this.title = title;
-        this.predictions = predictions;
+
+    @Exclude
+    private transient ArrayList<Prediction> predictions;
+
+    public ComboPrediction() {
+
     }
 
     public String getTitle() {
@@ -20,7 +25,7 @@ public class ComboPrediction {
     }
 
     public ArrayList<Prediction> getPredictions() {
-        if(predictions == null){
+        if (predictions == null) {
             predictions = new ArrayList<>();
         }
         return predictions;
@@ -30,14 +35,22 @@ public class ComboPrediction {
         this.predictions = predictions;
     }
 
-    public double getTotalOdds(){
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public double getTotalOdds() {
         double result = 0;
-        if(this.predictions.size()>0) {
+        if (this.predictions.size() > 0) {
             result = 1D;
             for (Prediction p : this.predictions) {
-                result = result *p.getOdds();
+                result = result * p.getOdds();
             }
         }
-        return result ;
+        return result;
     }
 }

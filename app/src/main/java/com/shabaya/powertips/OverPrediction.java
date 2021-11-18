@@ -7,6 +7,7 @@ public class OverPrediction {
     private String predict;
     private double odds;
 
+
     public OverPrediction(String country, String time, String match, String predict, double odds) {
         this.country = country;
         this.time = time;

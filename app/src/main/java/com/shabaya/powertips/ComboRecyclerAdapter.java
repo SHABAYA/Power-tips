@@ -32,6 +32,12 @@ public class ComboRecyclerAdapter extends RecyclerView.Adapter<ComboRecyclerAdap
         notifyDataSetChanged();
     }
 
+    public void addData(ComboPrediction comboPrediction) {
+        this.comboPredictionsList.add(0,comboPrediction);
+        notifyItemInserted(0);
+
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView combo_title;
         RecyclerView predictions_recycler_view;

@@ -1,6 +1,7 @@
 package com.shabaya.powertips;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,19 +12,32 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
 public class BetOfTheDayFragment extends Fragment {
-    private ArrayList<BetOfTheDayPrediction> predictionsList;
+    private ArrayList<Prediction> predictionsList;
     private RecyclerView prediction_recycler_view;
     private BetOfTheDayAdapter recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private CollectionReference predictionsCollectionReference;
+    private FirebaseFirestore firestore;
     View view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_bet_of_the_day, container, false);
 
+        setupFirebaseFirestore();
+        predictionsCollectionReference = firestore.collection("Predictions");
         initialiseRecyclerView();
         return view;
     }
@@ -45,9 +59,40 @@ public class BetOfTheDayFragment extends Fragment {
 
     public void getBetOfTheDayPrediction() {
         predictionsList = new ArrayList<>();
-        predictionsList.add(new BetOfTheDayPrediction("Germany", "13:30", "Leverkusen vs hertha Berlin", "btts", 1.58));
+        Query fetch = predictionsCollectionReference.orderBy("time").limit(25);
+        fetch.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                if(queryDocumentSnapshots.getDocuments().size() > 1){
+                    /// DocumentSnapshot documentSnapshots = queryDocumentSnapshots.getDocuments();
+                    for(DocumentSnapshot d:queryDocumentSnapshots.getDocuments()){
+                        Prediction p = d.toObject(Prediction.class);
+                        predictionsList.add(p);
+                    }
+                    recyclerAdapter.setPredictionsList(predictionsList);
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("ERROR",e.getMessage());
+            }
+        });
 
-        recyclerAdapter.setPredictionsList(predictionsList);
+    }
+
+    public void setupFirebaseFirestore() {
+        // [START get_firestore_instance]
+        firestore = FirebaseFirestore.getInstance();
+        // [END get_firestore_instance]
+
+        // [START set_firestore_settings]
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        firestore.setFirestoreSettings(settings);
+        // [END set_firestore_settings]
     }
 
 }
