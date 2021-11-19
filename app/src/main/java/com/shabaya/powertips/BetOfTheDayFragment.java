@@ -59,11 +59,11 @@ public class BetOfTheDayFragment extends Fragment {
 
     public void getBetOfTheDayPrediction() {
         predictionsList = new ArrayList<>();
-        Query fetch = predictionsCollectionReference.orderBy("time").limit(25);
+        Query fetch = predictionsCollectionReference.whereEqualTo("id", "bet_of_the_day").limit(25);
         fetch.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots.getDocuments().size() > 1){
+                if(queryDocumentSnapshots.getDocuments().size() > 0){
                     /// DocumentSnapshot documentSnapshots = queryDocumentSnapshots.getDocuments();
                     for(DocumentSnapshot d:queryDocumentSnapshots.getDocuments()){
                         Prediction p = d.toObject(Prediction.class);

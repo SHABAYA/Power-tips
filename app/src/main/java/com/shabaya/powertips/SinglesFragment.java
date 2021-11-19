@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,6 +24,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SinglesFragment extends Fragment {
     private ArrayList<Prediction> predictionsList;
@@ -60,16 +63,25 @@ public class SinglesFragment extends Fragment {
 
     public void getPrediction() {
         predictionsList = new ArrayList<>();
-        Query fetch = predictionsCollectionReference.orderBy("time").limit(25);
-        fetch.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        Query fetchHome = predictionsCollectionReference.whereEqualTo("predict", "Home wins");
+
+        Query fetchAway = predictionsCollectionReference.whereEqualTo("predict", "Away wins");
+
+        Task task1 = fetchHome.get();
+        Task task2 = fetchAway.get();
+
+        Task<List<QuerySnapshot>> allTask = Tasks.whenAllSuccess(task1, task2);
+
+
+        allTask.addOnSuccessListener(new OnSuccessListener<List<QuerySnapshot>>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                if(queryDocumentSnapshots.getDocuments().size() > 1){
-                    /// DocumentSnapshot documentSnapshots = queryDocumentSnapshots.getDocuments();
-                    for(DocumentSnapshot d:queryDocumentSnapshots.getDocuments()){
+            public void onSuccess(List<QuerySnapshot> querySnapshots) {
+                for (QuerySnapshot q : querySnapshots) {
+                    for (DocumentSnapshot d : q.getDocuments()) {
                         Prediction p = d.toObject(Prediction.class);
                         predictionsList.add(p);
                     }
+
                     recyclerAdapter.setPredictionsList(predictionsList);
                 }
             }

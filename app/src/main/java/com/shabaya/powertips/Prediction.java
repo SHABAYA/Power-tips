@@ -13,13 +13,14 @@ public class Prediction {
 
     }
 
-    public Prediction(String country, String time, String match, String predict, String combo_id, double odds) {
+    public Prediction(String country, String time, String match, String predict, String combo_id, double odds, String id) {
         this.country = country;
         this.time = time;
         this.match = match;
         this.predict= predict;
         this.comboId = combo_id;
         this.odds = odds;
+        this.id = id;
     }
 
     public String getComboId(){
@@ -77,4 +78,5 @@ public class Prediction {
     public String getId() {
         return id;
     }
+
 }

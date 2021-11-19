@@ -11,7 +11,7 @@
         android:text="Accumulator"
         android:layout_gravity="center"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginRight="12dp"
             android:textColor="@color/black"
             android:id="@+id/total_odds"
