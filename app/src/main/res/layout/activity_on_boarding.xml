@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellow"
     tools:context=".OnBoardingActivity"
     android:orientation="vertical"
     android:gravity="center">
@@ -15,7 +16,6 @@
         android:hint="Phone Number"
         android:layout_margin="10dp"
         android:textAlignment="center"
-        android:backgroundTint="@color/purple_500"
         android:background="@color/white"
         android:inputType="phone"
         android:textColorHint="@color/black"
@@ -40,5 +40,16 @@
         android:id="@+id/btn_submit"
         android:layout_margin="10dp"
         android:text="Submit"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="200dp"
+        android:text="\u00a9 2021 POWER TIPS ALL RIGHTS RESERVED"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
 
 </LinearLayout>
